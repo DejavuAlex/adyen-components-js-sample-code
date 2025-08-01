@@ -67,5 +67,12 @@ Find other sample projects in our [example projects repositories](https://github
 
 This repository is open source and available under the MIT license. For more information, see the LICENSE file.
 
-## Sicheng thinking on this project
+## Sicheng Add-on
+New File `dropin-custom.css` is for a new flat style version.
+You could change the css root in `../scr/dropin/index.html` to the new css file and remove the comments in the it, you can get below sample style.
+
+![New Web SStyleample Code 1](Snipaste_2025-08-01_20-22-27.png)  
+
+![New Web SStyleample Code 2](Snipaste_2025-08-01_20-26-39.png)
+
 
