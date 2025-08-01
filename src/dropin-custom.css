@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #0066ff;
+    --primary-hover: #004fcc;
+    --text-color: #1a1a1a;
+    --bg-light: #f9f9f9;
+    --bg-dark: #eaeaea;
+    --border-color: #e0e0e0;
+    --sidebar-bg: #00112c;
+    --sidebar-text: #ffffff;
+    --radius: 6px;
+    --transition: 0.3s ease; /* 新增过渡变量 */
+  }
+  
+  body {
+    background: var(--bg-light);
+    font: 400 1rem/1.5 'Fakt', -apple-system, BlinkMacSystemFont, sans-serif; /* 改进字体栈 */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* 确保全高度 */
+  }
+  
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2rem); /* 响应式字体大小 */
+    margin: 1.5rem 0; /* 使用相对单位 */
+    line-height: 1.4;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: text-decoration var(--transition);
+  }
+  
+  a:hover,
+  a:focus-visible { /* 添加焦点状态 */
+    text-decoration: underline;
+    outline: none;
+  }
+  
+  .container {
+    margin: 0 auto;
+    padding: 1.25rem; /* 20px → 1.25rem */
+    max-width: min(960px, 90vw); /* 响应式限制 */
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 添加微妙阴影 */
+  }
+  
+  .sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    position: relative; /* 为内部定位元素准备 */
+  }
+  
+  .sidebar .header {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 0.625rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sidebar h2 {
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  /* 按钮共用样式 */
+  .btn {
+    border-radius: var(--radius);
+    padding: 0.5em 1em;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: 
+      background-color var(--transition),
+      transform 0.1s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn:active {
+    transform: translateY(1px); /* 点击反馈 */
+  }
+  
+  .copy-sample-code {
+    background: transparent;
+    border: 1px solid currentColor; /* 使用当前文字颜色 */
+    color: inherit;
+  }
+  
+  .copy-sample-code:hover,
+  .copy-sample-code:focus {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .pay-button {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem; /* 使用相对单位 */
+    width: 100%; /* 统一按钮宽度 */
+  }
+  
+  .pay-button:hover,
+  .pay-button:focus {
+    background: var(--primary-hover);
+  }
+  
+  .pay-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .info {
+    background: var(--bg-dark);
+    border-left: 4px solid var(--primary-color);
+    padding: 0.875rem;
+    border-radius: var(--radius);
+    margin-top: 1.25rem;
+  }
+  
+  .payment-method {
+    background: var(--bg-dark);
+    border-radius: var(--radius);
+    padding: 2em;
+    display: grid; /* 使用网格布局 */
+    gap: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .payment-method__container,
+  .payment-container { /* 统一容器类名 */
+    max-width: 100%;
+    width: min(100%, 480px); /* 限制最大宽度 */
+    margin-inline: auto; /* 水平居中 */
+    padding-inline: 0.625rem;
+  }
+  
+  pre {
+    --code-bg: #f8f9fa;
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1em;
+    overflow: auto;
+    font-size: 0.9em;
+    color: #333;
+    position: relative;
+    max-height: 60vh;
+  }
+  
+  pre::after {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,0.05);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75em;
+    border-bottom-left-radius: var(--radius);
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    .payment-method {
+      padding: 1.5rem;
+    }
+    
+    .sidebar .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+  
+  /* 打印优化 */
+  @media print {
+    .sidebar, .copy-sample-code {
+      display: none;
+    }
+    .container {
+      max-width: 100%;
+      box-shadow: none;
+    }
+  }
+
+.footer-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+.footer-logo {
+    max-height: 60px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-text {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+
+  

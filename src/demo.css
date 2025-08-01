@@ -262,3 +262,11 @@ pre {
     background: #f7f8f9;
     padding: 0px 10px;
 }
+
+
+.footer-text {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #666;
+}

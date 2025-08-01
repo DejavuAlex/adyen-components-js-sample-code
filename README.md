@@ -66,3 +66,6 @@ Find other sample projects in our [example projects repositories](https://github
 ## License
 
 This repository is open source and available under the MIT license. For more information, see the LICENSE file.
+
+## Sicheng thinking on this project
+

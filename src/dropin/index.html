@@ -8,14 +8,18 @@
     <title>Adyen Checkout Components sample code</title>
     <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.40.0/adyen.css">
     <link rel="stylesheet" href="../demo.css">
+    <!-- <link rel="stylesheet" href="../dropin-custom.css"> -->
 </head>
 
 <body>
+    <div class="container">
+        <!-- <div class="footer-logo-wrapper">
+            <img src="your-logo.png" alt="Company Logo" class="footer-logo" />
+          </div>   -->
     <div class="container container--full-width">
         <div class="main">
-            <div class="checkout-container">
+            <div class="checkout-container">                
                 <a href="../">Back</a>
-
                 <h1>Drop-in</h1>
                 <div class="payment-method">
                     <div id="dropin-container">
@@ -82,7 +86,12 @@ const dropin = checkout
             </div>
         </div>
     </div>
-
+      <!-- <p class="footer-text" id="copyright-text">
+        © <span id="year"></span> Ayden. All rights reserved.
+      </p>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>       -->
     <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.40.0/adyen.js"></script>
     <script src="../demo.js"></script>
     <script src="../utils.js"></script>

@@ -3,7 +3,9 @@ const { CHECKOUT_APIKEY, CHECKOUT_URL, MERCHANT_ACCOUNT } = require('./config');
 module.exports = (endpoint, request) => {
     const body = JSON.stringify({
         merchantAccount: MERCHANT_ACCOUNT,
-        ...request
+        billingAddress: body.billingAddress,
+        holderName: body.holderName, 
+        ...request // 将传入的请求数据合并到请求体中
     });
 
     console.log('### getPostParameters::exports:: CHECKOUT_URL=', `${CHECKOUT_URL}/${endpoint}`);
