@@ -67,6 +67,41 @@ Find other sample projects in our [example projects repositories](https://github
 
 This repository is open source and available under the MIT license. For more information, see the LICENSE file.
 
+
+## Sicheng Out-put
+![Sample input](Result1.png)
+
+### Response
+```
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "cardHolderName": "Sicheng",
+    "cardSummary": "0000",
+    "isCardCommercial": "unknown",
+    "fraudManualReview": "false",
+    "PaymentAccountReference": "OpXN3tK9riZjFpVMvklioj8LQ2Bao",
+    "threeds2.threeDS2ResponseData.messageVersion": "2.2.0",
+    "threeds2.threeDS2Token": "xxxxx",
+    "issuerCountry": "PL",
+    "expiryDate": "3/2030",
+    "threeds2.threeDSServerTransID": "1d983972-3cac-4d76-8e03-f4fd537d55bf",
+    "cardBin": "491761",
+    "threeds2.cardEnrolled": "true",
+    "paymentMethod": "visa",
+    "cardPaymentMethod": "visacredit",
+    "paymentMethodVariant": "visacredit",
+    "fundingSource": "CREDIT",
+    "merchantReference": "Sicheng_adyenrecruitment",
+    "issuerBin": "49176100",
+    "threeds2.threeDSMethodURL": "https://pal-test.adyen.com/threeds2simulator/acs/startMethod.shtml",
+    "cardIssuingCountry": "PL"
+  },
+  "pspReference": "FTKH7GG5N869FH75",
+  "resultCode": "RedirectShopper"
+```
+
+
 ## Sicheng Add-on
 New File `dropin-custom.css` is for a new flat style version.
 You could change the css root in `../scr/dropin/index.html` to the new css file and remove the comments in the it, you can get below sample style.
@@ -74,5 +109,7 @@ You could change the css root in `../scr/dropin/index.html` to the new css file 
 ![New Web SStyleample Code 1](Snipaste_2025-08-01_20-22-27.png)  
 
 ![New Web SStyleample Code 2](Snipaste_2025-08-01_20-26-39.png)
+
+
 
 
