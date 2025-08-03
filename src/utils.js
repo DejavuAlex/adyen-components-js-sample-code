@@ -1,12 +1,12 @@
 // Function to set returnUrl, for standard Drop-in and Components, return to placeholder,
 // else redirect back to sessions where we handle the redirectResult
 function setReturnUrl() {
-    return "https://docs.adyen.com/"
-    // if (window.location.pathname === '/sessions/') {
-    //     return window.location.href
-    // } else {
-    //     return window.location.href;//'https://your-company.com/'
+    if (window.location.pathname === '/sessions/') {
+        return 'https://docs.adyen.com/'
+    } else {
+        return 'https://docs.adyen.com/';//'https://your-company.com/'
     }
+}
 
 const paymentMethodsConfig = {
     shopperReference: 'Sicheng_adyenrecruitment',
@@ -73,6 +73,13 @@ const makePayment = (paymentMethod, config = {}) => {
     return httpPost('payments', paymentRequest)
         .then(response => {
             if (response.error) throw 'Payment initiation failed';
+
+             // 如果返回的结果是需要重定向的类型，处理 `action.url`
+            // if (response.resultCode === 'RedirectShopper' && response.action) {
+            //     // 这里需要手动进行跳转
+            //     //window.location.href = response.action.url;
+            //     window.location.href = 'https://docs.adyen.com/'
+            // }
 
             alert(response.resultCode);
             updateResponseContainer(response);

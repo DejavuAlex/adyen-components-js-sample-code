@@ -25,7 +25,7 @@ function initiatePayment() {
             'value' => 1000
         ],
         'reference' => 'Order Reference',
-        'returnUrl' => 'https://your-company.com/...',
+        'returnUrl' => 'https://docs.adyen.com/',
         'merchantAccount' => $merchantAccount
     ];
 

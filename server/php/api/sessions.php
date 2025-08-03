@@ -25,7 +25,7 @@ function initiateSessions() {
             'value' => 1000
         ],
         'reference' => 'Order Reference',
-        'returnUrl' => 'https://your-company.com/...',
+        'returnUrl' => 'https://docs.adyen.com/',
         'merchantAccount' => $merchantAccount
     ];
 
@@ -67,6 +67,6 @@ function initiateSessions() {
     // Closing
     curl_close($curlAPICall);
 
-    // This file returns a JSON object
+    // This file returns a JSON object  
     return $result;
 }

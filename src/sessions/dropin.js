@@ -36,7 +36,8 @@ getClientKey().then(clientKey => {
                         card: {
                             // Optional configuration
                             hasHolderName: true,
-                            holderNameRequired: true
+                            holderNameRequired: true,
+                            billingAddressRequired: true
                         }
                     }
                 };
