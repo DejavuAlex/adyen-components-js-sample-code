@@ -38,7 +38,7 @@ getClientKey().then(clientKey => {
                             hasHolderName: true,
                             holderNameRequired: true,
                             billingAddressRequired: true
-                        }
+                        },
                     }
                 };
                 async function initiateCheckout() {

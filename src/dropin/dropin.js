@@ -39,10 +39,31 @@ getClientKey().then(clientKey => {
             },
             onSubmit: (state, dropin) => {
                 //Add billing address and card holder name to the request
-                const paymentData = {
-                    ...state.data,
-                };
-                makePayment(paymentData);
+                // const paymentData = {
+                //     ...state.data,
+                // };
+                makePayment(state.data);
+            },
+            ///
+            onAdditionalDetails: async (state, dropin) => {
+                // Handle redirect details from https://checkoutshopper-test.adyen.com/checkoutshopper/identifyShopper.shtml
+                try {
+                    const response = await fetch('/api/payments/details', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(state.data) // Contains redirect details (e.g., MD, PaRes)
+                    }).then(res => res.json());
+
+                    if (response.resultCode === 'Authorised') {
+                        document.getElementById('result').innerText = 'Payment successful!';
+                    } else {
+                        document.getElementById('result').innerText = `Payment failed: ${response.resultCode}`;
+                    }
+                    updateStateContainer(response); // Update UI for demo purposes
+                } catch (error) {
+                    console.error('Error calling /payments/details:', error);
+                    document.getElementById('result').innerText = 'An error occurred during payment.';
+                }
             }
         };
 

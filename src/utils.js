@@ -15,12 +15,17 @@ const paymentMethodsConfig = {
     amount: {
         value: 1000,
         currency: 'EUR'
-    }
+    },
+//     additionalData: {
+//     "autoRescue": "True",
+//     "maxDaysToRescue": "40"
+//   }
 };
 
 const paymentsDefaultConfig = {
     shopperReference: 'Sicheng_adyenrecruitment',
     reference: 'Sicheng_adyenrecruitment',
+    //allowedPaymentMethods: [ "ideal", "scheme" ],
     countryCode: 'NL',
     channel: 'Web',
     returnUrl: setReturnUrl(),
@@ -39,7 +44,7 @@ const paymentsDefaultConfig = {
             quantity: 1,
             taxCategory: 'High'
         }
-    ]
+    ]   
 };
 
 // Generic POST Helper
@@ -58,11 +63,11 @@ const getPaymentMethods = (config = {}) =>
     httpPost('paymentMethods', { ...paymentMethodsConfig, ...config })
         .then(response => {
             if (response.error) throw 'No paymentMethods available';
-
+            //console.log('getPaymentMethods response', response);
             return response;
         })
         .catch(console.error);
-
+    
 // Posts a new payment into the local server
 const makePayment = (paymentMethod, config = {}) => {
     const paymentsConfig = { ...paymentsDefaultConfig, ...config };
@@ -74,12 +79,12 @@ const makePayment = (paymentMethod, config = {}) => {
         .then(response => {
             if (response.error) throw 'Payment initiation failed';
 
-             // 如果返回的结果是需要重定向的类型，处理 `action.url`
-            // if (response.resultCode === 'RedirectShopper' && response.action) {
-            //     // 这里需要手动进行跳转
-            //     //window.location.href = response.action.url;
-            //     window.location.href = 'https://docs.adyen.com/'
-            // }
+            //如果返回的结果是需要重定向的类型，处理 `action.url`
+            if (response.resultCode === 'RedirectShopper' && response.action) {
+                // 这里需要手动进行跳转
+                //window.location.href = response.action.url;
+                dropin.handleAction(response.action);
+            }
 
             alert(response.resultCode);
             updateResponseContainer(response);
